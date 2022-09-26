@@ -1,0 +1,77 @@
+<h1>{{titre}}</h1>
+
+<p>Angular est un framework JavaScript développé par Google.
+  Il permet de créer des applications web monopages (SPA) et mobiles.
+  Il est basé sur TypeScript,
+  un langage de programmation libre et open source développé par Microsoft.
+</p>
+
+<main>
+  <h2>Interpolation</h2>
+
+  <p>On eut interpoler du JS ( ou TS  ) entre les balises grâce aux <b>balises moustaches</b></p>
+  <ul>
+    <li>1 + 1 = {{ 1 + 1}}</li>
+    <p>Donnée du TS : {{data}}</p>
+    <ul> Objet user :
+      <li>Nom: {{user.nom}}</li>
+      <li>Age : {{user.age}}</li>
+    </ul>
+  </ul>
+  <p>
+    Compteur : {{count}}
+    <button (click)="increment()" >Incrémenter</button>
+  </p>
+  <p>Pour appeler des événements en Angular, la syntaxe est :
+    (nom_event)="nom_fonction()" </p>
+  <p>Exemple :
+    <code>(click)="increment()"</code>
+  </p>
+
+
+<h2>Attribute / Property Binding</h2>
+
+  <p>On peut passer dynamiquement des données du Ts vers les attributs HTML
+  avec la syntaxe []</p>
+  <p>Les attributs html basique attendent une string, en dur, quand ils sont entre [], ils attendent du JS à interpréter :
+  </p>
+  <ul>
+    <li>src="monlien.jpeg"</li>
+    <li>[src]="du js qui retourne une string"</li>
+  </ul>
+  <figure>
+    <img [src]="url" alt=""/>
+  </figure>
+
+  <figure>
+    <img [src]="image.url" [alt]="image.titre"/>
+    <figcaption>{{image.titre}}</figcaption>
+  </figure>
+
+  <p>Cette syntaxe est vrai pour tous les attributs HTML,
+    même les attributs personnalisés.</p>
+
+  <h2>Data Binding : classes</h2>
+
+  <p>On peut gérer les classes dynamiquement de plusieurs manières :</p>
+
+  <h3>Les syntaxes de [class]</h3>
+  <ul>
+    <li [class]="ma_classe" class="classe2">[class]="du_js qui retourne un string"</li>
+    <li [class]="(condition)? 'c_true' : 'c_false'">[class]="(condition)? 'c_true' : 'c_false'"</li>
+    <li [class.ma_classe]="condition">
+      [class.nom_classe]="condition"  => l'élément à la classe "ma_classe" si condition est true
+    </li>
+  </ul>
+
+  <h3>Les syntaxes de [ngClass]</h3>
+
+  <p>On peut utiliser la directive ngClass pour gérer les classes dynamiquement. Elle attend comme valeur :</p>
+
+  <ul>
+    <li [ngClass]="ma_classe"> String ( comme [class] ) : [ngClass]="ma_classe"</li>
+    <li [ngClass]="[ma_classe, 'une-autre-classe']">String[] [ngClass="[]"</li>
+    <li [ngClass]="{string_nom_de_classe: condition}">Object : [ngClass]="{{"{ma_classe: condition}"}}"</li>
+  </ul>
+
+</main>
