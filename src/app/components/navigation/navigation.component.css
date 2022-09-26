@@ -24,6 +24,7 @@ a:link, a:visited {
   border-bottom: solid 3px white;
   color: salmon;
   padding: 0 20px;
+  transition: .3s;
 }
 
 a:hover {

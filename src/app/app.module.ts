@@ -7,6 +7,7 @@ import { PresentationComponent } from './pages/presentation/presentation.compone
 import { DirectivesComponent } from './pages/directives/directives.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -16,10 +17,11 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     NotfoundComponent,
     NavigationComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

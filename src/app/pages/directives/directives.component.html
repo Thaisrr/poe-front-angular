@@ -1,1 +1,114 @@
-<p>directives works!</p>
+<h1>Les Directives</h1>
+
+<p>Une directive, c'est un attribut Angular qu'on applique à des balises HTML : [ngClass]</p>
+<p>Les directives Angular sont préfixées par <b>ng</b> : ngClass, ngStyle, ...</p>
+
+<h2>Affichage Conditionnel</h2>
+
+<p>Pour des textes courts à afficher de manière conditionnelle,
+on peut utiliser du ternaire :
+  <code>(is_logged)? 'Déconnexion' : 'Connexion'</code>
+</p>
+<p>
+  <button (click)="login()">
+      {{ (is_logged)? 'Déconnexion' : 'Connexion' }}
+  </button>
+</p>
+
+<h2>Afficher Si....</h2>
+<div *ngIf="is_logged">
+  <h3>Vous êtes connecté⋅e</h3>
+  <p>Vous pouvez pleinement profiter du site...</p>
+  <p>blablabla</p>
+</div>
+
+<div *ngIf="!is_logged">
+  <h3>Vous n'êtes pas connecté⋅e :(</h3>
+  <p>Connectez vous pour profiter pleinement du site</p>
+  <p>blablabla</p>
+</div>
+
+<h2>Si ... sinon</h2>
+
+<div *ngIf="is_logged; else elseBlock">
+  <h3>Vous êtes connecté⋅e</h3>
+  <p>Vous pouvez pleinement profiter du site...</p>
+  <p>blablabla</p>
+</div>
+
+<ng-template #elseBlock>
+  <div>
+    <h3>Vous n'êtes pas connecté⋅e :(</h3>
+    <p>Connectez vous pour profiter pleinement du site</p>
+    <p>blablabla</p>
+  </div>
+</ng-template>
+
+<h2>Les Listes</h2>
+
+<p>Le <code>*ngFor</code> se met sur l'élément à répéter ( ici, le li ).</p>
+<p>On peut le mettre sur une balise simple, sur un block de balises, ou un composant.</p>
+
+<ul>
+  <li *ngFor="let b of books">{{b}}</li>
+</ul>
+
+<h3>Options du *ngFor</h3>
+
+<div *ngFor="let b of books;
+    let i = index;
+    let is_first = first;
+    let is_last = last;
+    odd as is_odd;
+    even as is_even
+">
+  <h4>{{b}}</h4>
+  <p>A l'index : {{i}} </p>
+  <ul>
+    <li>Premier livre de ma liste ? {{is_first}}</li>
+    <li>Dernier ? {{is_last}}</li>
+    <li>Nombre pair ? {{is_odd}}</li>
+    <li>Element impair ? {{is_even}}</li>
+  </ul>
+  <hr>
+</div>
+
+
+
+<h2>Two Way Binding</h2>
+
+<p>
+  <input [(ngModel)]="new_book"/>
+</p>
+
+<p>Vous avez écrit : {{new_book}}</p>
+<p>
+  <button (click)="changeBook()">Modifier la variable</button>
+  <button (click)="saveBook()">Sauvegarder</button>
+</p>
+
+<h3>Avec les objets</h3>
+
+<fieldset>
+  <legend>Utilisateur⋅trice</legend>
+
+  <p>
+    <label for="name">Nom</label>
+    <input id="name" [(ngModel)]="new_user.nom"/>
+  </p>
+  <p>
+    <label for="email">Email</label>
+    <input id="email" [(ngModel)]="new_user.email">
+  </p>
+  <p>
+    <button (click)="saveUser()">Save</button>
+  </p>
+  <p>{{new_user.nom}}  | {{new_user.email}}</p>
+</fieldset>
+
+<h3>Mes Users : </h3>
+
+<ul>
+  <li *ngFor="let u of users">{{u.nom}} : {{u.email}}</li>
+</ul>
+
