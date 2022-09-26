@@ -4,6 +4,8 @@ body {
   font-family: sans-serif;
 }
 
+* { box-sizing: border-box}
+
 .centered, figure {
   margin: auto;
   width: 80%;
