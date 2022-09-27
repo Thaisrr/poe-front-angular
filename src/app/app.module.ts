@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,6 +9,11 @@ import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import {FormsModule} from "@angular/forms";
 import { PipesComponent } from './pages/pipes/pipes.component';
+import { RainbowPipe } from './utils/pipes/rainbow.pipe';
+import {registerLocaleData} from "@angular/common";
+import localeFr from '@angular/common/locales/fr';
+import { OrderPipe } from './utils/pipes/order.pipe';
+registerLocaleData(localeFr, 'fr');
 
 @NgModule({
   declarations: [
@@ -17,14 +22,16 @@ import { PipesComponent } from './pages/pipes/pipes.component';
     DirectivesComponent,
     NotfoundComponent,
     NavigationComponent,
-    PipesComponent
+    PipesComponent,
+    RainbowPipe,
+    OrderPipe
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         FormsModule
     ],
-  providers: [],
+  providers: [{provide: LOCALE_ID, useValue: 'fr-FR'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

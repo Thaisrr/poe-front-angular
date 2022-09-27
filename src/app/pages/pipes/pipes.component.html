@@ -38,7 +38,7 @@ formater les données affichées dans le template.
     <li>Année {{today | date: 'yyyy'}}</li>
 
     <li>Date : {{today | date: 'cccc, d, MMMM, yyyy'}}</li>
-    <li>Date : {{today | date: 'd/MM/yyyy'}}</li>
+    <li>Date : {{today | date: 'd/MM/yyyy' }}</li>
 
     <li>Heure ( 1, 12) {{today | date: 'h'}}</li>
     <li>Heure ( 01, 12) {{today | date: 'hh'}}</li>
@@ -71,7 +71,48 @@ formater les données affichées dans le template.
     <li>{{ 5 | number: '2.2-10'}}</li>
   </ul>
 
+  <h2>Pipe personnalisé</h2>
+
+  <p>On peut créer des pipe personnalisé : </p>
+  <ul>
+    <li>Créer le fichier : <code>ng g pipe nom-du-pipe</code></li>
+    <li>Modifier la fonction transform, pour "décrire" ce que fait le pipe :</li>
+    <li>value : la valeur à modifier ( ici, message )</li>
+    <li>return : ce qui sera affiché</li>
+    <li>...args : un tableau de paramètres supplémentaires optionnels</li>
+  </ul>
+  <p>{{message | titlecase | rainbow}}</p>
+
+  <h2>Dans les tableaux</h2>
+
+  <h3>Ordre alphabétique ( sans param )</h3>
+  <ul>
+    <li *ngFor="let u of users | order">{{u | rainbow}}</li>
+  </ul>
+
+  <h3>Ordre anté-alphabétique ( avec param )</h3>
+  <ul>
+    <li *ngFor="let u of users | order: 'desc'">{{u | rainbow}}</li>
+  </ul>
 
 
+  <h3>Dynamique</h3>
+
+  <p><b>Bug</b></p>
+  <p>
+    A retenir : si les Pipes surveillent des tableaux ou des objets
+    modifiés sans être réassigné ( mavariable = nouvelle_valeur), ils
+    ne se mettront pas à jour.
+  </p>
+  <p>
+    <input [(ngModel)]="message"/>
+  </p>
+  <p>
+    <button (click)="changeDirection()">Switch</button>
+    <button (click)="addUser()">Add User</button>
+  </p>
+  <ul>
+    <li *ngFor="let u of users | order: direction">{{u | rainbow}}</li>
+  </ul>
 
 </main>
