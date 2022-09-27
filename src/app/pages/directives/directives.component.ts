@@ -15,7 +15,6 @@ export class DirectivesComponent  {
 
   is_logged = true;
   books = [`L'Assassin Royal`, `La Passe Miroir`, `The Hitchhiker Guide to the Galaxy`]
-  autre_book = 'Encore un livre';
   new_book = '';
   users: User[] = [];
   new_user: User = {nom: '', email: ''};

@@ -1,0 +1,77 @@
+<h1>Les Pipes</h1>
+
+<p>Les pipes sont des paramètres / des fonctions qui servent à
+formater les données affichées dans le template.
+</p>
+
+<main>
+  <h2>Les pipes de texte</h2>
+
+  <ul>
+    <li>{{message}}</li>
+    <li>{{ message | uppercase }}</li>
+    <li>{{ message | lowercase }}</li>
+    <li>{{message | titlecase}}</li>
+  </ul>
+
+  <h2>Date</h2>
+
+  <ul>
+    <li>{{today}}</li>
+    <li>{{today | date}}</li>
+    <li>Short : {{today | date : 'short'}}</li>
+    <li>Medium : {{today | date: 'medium'}}</li>
+    <li>Long: {{today | date: 'long'}}</li>
+    <li>Full: {{today | date: 'full'}}</li>
+
+    <li>Numéro dans le mois ( 1 à 31 ) : d {{today | date: 'd'}}</li>
+    <li>Numéro dans la semaine ( 1 à 7 ): c {{today | date: 'c'}}</li>
+    <li>Abréviation du jour: ccc {{today | date: 'ccc'}}</li>
+    <li>Jour complet: cccc {{today | date: 'cccc'}}</li>
+
+    <li>Numéro de mois ( 1 - 12 ) : M {{today | date: 'M'}}</li>
+    <li>Numéro de mois ( 01 - 12 ) : MM {{today | date: 'MM'}}</li>
+    <li>Abréviation du mois : MMM {{today | date: 'MMM'}}</li>
+    <li>Nom du mois : MMMM {{today | date: 'MMMM'}}</li>
+
+    <li>Année {{today | date: 'yy'}}</li>
+    <li>Année {{today | date: 'yyyy'}}</li>
+
+    <li>Date : {{today | date: 'cccc, d, MMMM, yyyy'}}</li>
+    <li>Date : {{today | date: 'd/MM/yyyy'}}</li>
+
+    <li>Heure ( 1, 12) {{today | date: 'h'}}</li>
+    <li>Heure ( 01, 12) {{today | date: 'hh'}}</li>
+    <li>Heure ( 0, 23) {{today | date: 'H'}}</li>
+    <li>Heure ( 00, 23) {{today | date: 'HH'}}</li>
+
+    <li>Minute ( 0 - 59 ) {{today | date: 'm'}}</li>
+    <li>Minute ( 00 - 59 ) {{today | date: 'mm'}}</li>
+
+    <li>{{today | date: 'HH:mm'}}</li>
+    <li>{{today | date: 'h:mm a'}}</li>
+  </ul>
+
+  <p><a href="https://angular.io/api/common/DatePipe">Plus d'info sur la Doc</a> </p>
+
+  <h2>Les nombres</h2>
+
+  <!--
+  nombre minimum de chiffre avant la virgule : ex: 2     03.14
+  .
+  nombre minimum de chiffres après la virgule: ex: 3   3.141.....
+  -
+  nb maximum de chiffres après la virgule: ex 1   3.1
+  -->
+  <ul>
+    <li>{{pi}}</li>
+    <li>{{pi | number}}</li>
+    <li>{{pi | number: '2.1-5'  }}</li>
+    <li>{{pi | number: '1.1-2'  }}</li>
+    <li>{{ 5 | number: '2.2-10'}}</li>
+  </ul>
+
+
+
+
+</main>

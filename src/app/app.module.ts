@@ -8,6 +8,7 @@ import { DirectivesComponent } from './pages/directives/directives.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import {FormsModule} from "@angular/forms";
+import { PipesComponent } from './pages/pipes/pipes.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {FormsModule} from "@angular/forms";
     PresentationComponent,
     DirectivesComponent,
     NotfoundComponent,
-    NavigationComponent
+    NavigationComponent,
+    PipesComponent
   ],
     imports: [
         BrowserModule,
