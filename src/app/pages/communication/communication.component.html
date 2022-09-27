@@ -1,0 +1,15 @@
+<h1>Communication entre Composants</h1>
+
+<main>
+  <h2>Props & Input</h2>
+
+  <p>Valeur de compteur_parent = {{compteur_parent}}</p>
+
+  <app-enfant
+    title="Compteur Parent :"
+    [count]="compteur_parent"
+    (increment_event)="handleIncrement()"
+    (message_event)="handleMessage($event)"
+  >
+  </app-enfant>
+</main>
