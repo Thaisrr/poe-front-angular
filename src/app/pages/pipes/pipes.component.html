@@ -87,12 +87,12 @@ formater les données affichées dans le template.
 
   <h3>Ordre alphabétique ( sans param )</h3>
   <ul>
-    <li *ngFor="let u of users | order">{{u | rainbow}}</li>
+    <li *ngFor="let u of users1 | order">{{u | rainbow}}</li>
   </ul>
 
   <h3>Ordre anté-alphabétique ( avec param )</h3>
   <ul>
-    <li *ngFor="let u of users | order: 'desc'">{{u | rainbow}}</li>
+    <li *ngFor="let u of users2 | order: 'desc'">{{u | rainbow}}</li>
   </ul>
 
 
@@ -112,7 +112,6 @@ formater les données affichées dans le template.
     <button (click)="addUser()">Add User</button>
   </p>
   <ul>
-    <li *ngFor="let u of users | order: direction">{{u | rainbow}}</li>
+    <li *ngFor="let u of users3 | order: direction">{{u | rainbow}}</li>
   </ul>
-
 </main>

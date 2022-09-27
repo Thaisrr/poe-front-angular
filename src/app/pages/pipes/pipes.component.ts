@@ -12,7 +12,9 @@ export class PipesComponent  {
   today = new Date();
   pi = Math.PI;
 
-  users = ['Jean Michel', 'Jean Micheline', 'Toto', 'Aliénor', 'Jeanne', 'Gertrude'];
+  users1 = ['Jean Michel', 'Jean Micheline', 'Toto', 'Aliénor', 'Jeanne', 'Gertrude'];
+  users2 = ['Jean Michel', 'Jean Micheline', 'Toto', 'Aliénor', 'Jeanne', 'Gertrude'];
+  users3 = ['Jean Michel', 'Jean Micheline', 'Toto', 'Aliénor', 'Jeanne', 'Gertrude'];
 
   count = 0;
   direction: OrderType = 'asc';
@@ -23,8 +25,8 @@ export class PipesComponent  {
 
   addUser() {
     this.count++;
-    this.users.push('User' + this.count);
-    this.users = [...this.users];
+    this.users3.push('User' + this.count);
+  //  this.users3 = [...this.users3];
   }
 
 
