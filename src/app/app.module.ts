@@ -15,6 +15,8 @@ import localeFr from '@angular/common/locales/fr';
 import { OrderPipe } from './utils/pipes/order.pipe';
 import { CommunicationComponent } from './pages/communication/communication.component';
 import { EnfantComponent } from './components/enfant/enfant.component';
+import { AboutServiceComponent } from './pages/about-service/about-service.component';
+import { AboutServiceBisComponent } from './pages/about-service-bis/about-service-bis.component';
 registerLocaleData(localeFr, 'fr');
 
 @NgModule({
@@ -28,7 +30,9 @@ registerLocaleData(localeFr, 'fr');
     RainbowPipe,
     OrderPipe,
     CommunicationComponent,
-    EnfantComponent
+    EnfantComponent,
+    AboutServiceComponent,
+    AboutServiceBisComponent
   ],
     imports: [
         BrowserModule,
