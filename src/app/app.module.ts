@@ -7,7 +7,7 @@ import { PresentationComponent } from './pages/presentation/presentation.compone
 import { DirectivesComponent } from './pages/directives/directives.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { PipesComponent } from './pages/pipes/pipes.component';
 import { RainbowPipe } from './utils/pipes/rainbow.pipe';
 import {registerLocaleData} from "@angular/common";
@@ -17,6 +17,7 @@ import { CommunicationComponent } from './pages/communication/communication.comp
 import { EnfantComponent } from './components/enfant/enfant.component';
 import { AboutServiceComponent } from './pages/about-service/about-service.component';
 import { AboutServiceBisComponent } from './pages/about-service-bis/about-service-bis.component';
+import { FormulairesComponent } from './pages/formulaires/formulaires.component';
 registerLocaleData(localeFr, 'fr');
 
 @NgModule({
@@ -32,12 +33,14 @@ registerLocaleData(localeFr, 'fr');
     CommunicationComponent,
     EnfantComponent,
     AboutServiceComponent,
-    AboutServiceBisComponent
+    AboutServiceBisComponent,
+    FormulairesComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
     ],
   providers: [{provide: LOCALE_ID, useValue: 'fr-FR'}],
   bootstrap: [AppComponent]

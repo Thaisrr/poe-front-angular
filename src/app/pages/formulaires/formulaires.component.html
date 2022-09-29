@@ -1,0 +1,95 @@
+<h1>Les Formulaires</h1>
+
+<h2>Template Driven Forms</h2>
+<p>C'est le [(ngModel)], qui permet de faire du <i>Two Way Binding</i> :
+typescript fournit une valeur à l'input, et l'input fournit une valeur au typescript,
+le tout enregistré dans une variable.
+</p>
+
+<h3>Exemple simple</h3>
+<p>
+  <label for="plant">Modifier ma plante</label>
+  <input id="plant" [(ngModel)]="plante"/>
+</p>
+<p>Ma plante préférée est : <b>{{plante}}</b></p>
+
+<h3>Dans un formulaire</h3>
+<form (ngSubmit)="saveUser()">
+  <p>
+    <label for="name">Nom</label>
+    <input id="name" [(ngModel)]="user.nom" name="nom"/>
+  </p>
+  <p>
+    <label for="email">Email</label>
+    <input id="email" [(ngModel)]="user.email" name="email"/>
+  </p>
+  <button type="submit">Enregistrer</button>
+  <p>{{form_error}}</p>
+</form>
+
+
+<h2>Formulaires Reactifs</h2>
+
+<form (ngSubmit)="saveFlower()">
+  <label for="flower">Fleur</label>
+  <input id="flower" [formControl]="fleur_control" />
+  <button [disabled]="fleur_control.invalid">Save</button>
+  <p *ngIf="fleur_control.invalid && fleur_control.touched">
+    <!--
+    <span *ngIf="fleur_control.hasError('required')">Ce champs est obligatoire !</span>
+    <span *ngIf="fleur_control.hasError('minlength')"></span>
+    <span *ngIf="fleur_control.hasError('maxlength')">Maximum 3 caractères !</span>
+    <span *ngIf="fleur_control.hasError('pattern')">Doit commencer par une majuscule !</span>
+    -->
+    {{error}}
+  </p>
+
+  <h3>Propriétés de FormControl : </h3>
+  <ul>
+    <li>[invalid] Champs Invalide ? {{fleur_control.invalid}}</li>
+    <li>[valid] Champs valide ? {{fleur_control.valid}}</li>
+    <li>[touched] A déjà reçu puis perdu le focus ? {{fleur_control.touched}}</li>
+    <li>[untouched] N'a jamais perdu le focus ? {{fleur_control.untouched}}</li>
+    <li>[dirty] A déjà reçu une interaction ? {{fleur_control.dirty}}</li>
+    <li>[pristine] N'a jamais reçu une interaction ? {{fleur_control.pristine}}</li>
+    <li>[required] Erreur: champs vide ? {{fleur_control.hasError('required')}}</li>
+    <li>[minlength] Erreur : trop court ? {{fleur_control.hasError('minlength')}} </li>
+  </ul>
+</form>
+
+<h2>Forms Group</h2>
+
+<form (ngSubmit)="saveFormation()" [formGroup]="formation_group">
+  <p>
+    <label for="t">Titre</label>
+    <input id="t" formControlName="title"/>
+    <span *ngIf="title.invalid && title.touched">
+      Veuillez entrer un titre
+    </span>
+  </p>
+  <p>
+    <label for="start">Début</label>
+    <input id="start" type="date" formControlName="start_date"/>
+  </p>
+  <p>
+    <label for="duree">Durée</label>
+    <input id="duree" type="number" formControlName="duration"/>
+  </p>
+  <fieldset formGroupName="trainer">
+    <legend>Formateur⋅trice</legend>
+    <p>
+      <label for="first">Prénom</label>
+      <input id="first" formControlName="firstname"/>
+    </p>
+    <p>
+      <label for="last">Nom</label>
+      <input id="last" formControlName="lastname"/>
+    </p>
+  </fieldset>
+  <p>
+    <button [disabled]="formation_group.invalid">Enregistrer la formation</button>
+  </p>
+
+</form>
+
+
