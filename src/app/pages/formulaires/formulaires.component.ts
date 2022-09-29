@@ -111,8 +111,11 @@ obj_tags = [
   }
 
 saveFormation() {
-   // this.formation = this.formation_group.value as Formation;
-    console.log(this.formation_group.value);
+    this.formation = this.formation_group.value as Formation;
+    console.log(this.formation);
+    // Appeler le service pour enregistrer la formation dans l'API
+    // Ensuite : reset ou redirection vers une autre page
+   // this.formation_group.reset();
 }
 
 addTopic() {
