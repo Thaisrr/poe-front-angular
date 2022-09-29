@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Formation} from "../../utils/types/Formation";
 
 @Component({
@@ -72,12 +72,42 @@ formation_group = new FormGroup({
   trainer: new FormGroup({
     firstname: new FormControl(),
     lastname: new FormControl(),
-  })
+  }),
+  topics: new FormArray([
+    new FormControl(),
+    new FormControl()
+  ]),
+  students: new FormArray([
+    new FormGroup({
+      firstname : new FormControl(),
+      lastname: new FormControl()
+    })
+  ]),
+  tags: new FormArray<FormControl>([])
 });
 formation?: Formation;
 
+obj_tags = [
+  {label: 'Front End', value: 'FRONT'},
+  {label: 'Back End', value: 'BACK'},
+  {label: 'Informatique', value: 'INFORMATIQUE'},
+  {label: 'Design', value: 'DESIGN'},
+];
+
   get title() {
     return this.formation_group.controls.title;
+  }
+
+  get topics_array() {
+    return this.formation_group.controls.topics as FormArray
+  }
+
+  get students_array() {
+    return this.formation_group.controls.students as FormArray;
+  }
+
+  get tags_array() {
+    return this.formation_group.controls.tags as FormArray;
   }
 
 saveFormation() {
@@ -85,7 +115,29 @@ saveFormation() {
     console.log(this.formation_group.value);
 }
 
+addTopic() {
+    this.topics_array.push(new FormControl());
+}
 
+addStudent() {
+    this.students_array.push(
+      new FormGroup({
+        firstname : new FormControl(),
+        lastname: new FormControl()
+      })
+    )
+}
 
+toggleTags(e: Event) {
+    const checkbox = e.target as HTMLInputElement;
+    if(checkbox.checked) {
+      // On ajoute le tag dans le tableau tas_array
+      this.tags_array.push(new FormControl(checkbox.value))
+    } else {
+
+      const index = this.tags_array.controls.findIndex(control => control.value === checkbox.value);
+      this.tags_array.removeAt(index);
+    }
+}
 
 }

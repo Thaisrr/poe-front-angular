@@ -86,6 +86,31 @@ le tout enregistré dans une variable.
       <input id="last" formControlName="lastname"/>
     </p>
   </fieldset>
+  <fieldset formArrayName="topics">
+    <legend>Topics</legend>
+    <p *ngFor="let topic of topics_array.controls; index as i ">
+      <input [formControlName]="i" />
+    </p>
+    <button type="button" (click)="addTopic()">ADD</button>
+  </fieldset>
+  <fieldset formArrayName="students">
+    <legend>Participants⋅es</legend>
+
+    <p *ngFor="let s of students_array.controls; index as i" [formGroupName]="i" >
+      <input formControlName="firstname" placeholder="Prénom">
+      <input placeholder="Nom" formControlName="lastname">
+    </p>
+    <button type="button" (click)="addStudent()">
+      Ajouter des participant⋅tes
+    </button>
+  </fieldset>
+  <fieldset>
+    <legend>Tags</legend>
+    <p *ngFor="let t of obj_tags">
+      <input [id]="t.value" type="checkbox" [value]="t.value" (change)="toggleTags($event)">
+      <label [for]="t.value">{{t.label}}</label>
+    </p>
+  </fieldset>
   <p>
     <button [disabled]="formation_group.invalid">Enregistrer la formation</button>
   </p>
