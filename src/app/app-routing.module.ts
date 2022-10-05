@@ -10,6 +10,8 @@ import {AboutServiceBisComponent} from "./pages/about-service-bis/about-service-
 import {FormulairesComponent} from "./pages/formulaires/formulaires.component";
 import {RappelsComponent} from "./pages/rappels/rappels.component";
 import {ObservablesComponent} from "./pages/observables/observables.component";
+import {RequestsComponent} from "./pages/requests/requests.component";
+import {RxComponent} from "./pages/rx/rx.component";
 
 const routes: Routes = [
   {path: '', component: PresentationComponent},
@@ -20,7 +22,10 @@ const routes: Routes = [
   {path: 'services2', component: AboutServiceBisComponent},
   {path: 'formulaires', component: FormulairesComponent},
   {path: 'toto', component: RappelsComponent},
-  {path: 'obs', component: ObservablesComponent},
+  {path: 'rxjs', component: RxComponent, children: [
+      {path: 'obs', component: ObservablesComponent},
+      {path: 'req', component: RequestsComponent},
+    ]},
   {path: 'accueil', redirectTo: ''},
   {path: 'acceuil', redirectTo: '' },
   {path: '**', component: NotfoundComponent}, // se met en dernier

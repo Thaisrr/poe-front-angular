@@ -9,6 +9,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class ObservablesComponent implements OnInit {
   users: any;
+  posts: any;
 
   getData = new Observable((observer) => {
     observer.next('Hello World !');
@@ -36,6 +37,7 @@ export class ObservablesComponent implements OnInit {
     })
 
     this.getUsers();
+    this.getPosts();
   } // fin du ngOnInit
 
   getUsers() {
@@ -44,6 +46,10 @@ export class ObservablesComponent implements OnInit {
       .subscribe(response => this.users = response)
   }
 
+  getPosts() {
+    const url = "https://jsonplaceholder.typicode.com/posts";
+    this.http.get(url).subscribe(response => this.posts = response)
+  }
 
 
 

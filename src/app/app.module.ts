@@ -21,6 +21,8 @@ import { FormulairesComponent } from './pages/formulaires/formulaires.component'
 import { RappelsComponent } from './pages/rappels/rappels.component';
 import { ObservablesComponent } from './pages/observables/observables.component';
 import {HttpClientModule} from "@angular/common/http";
+import { RequestsComponent } from './pages/requests/requests.component';
+import { RxComponent } from './pages/rx/rx.component';
 
 
 
@@ -43,7 +45,9 @@ registerLocaleData(localeFr, 'fr');
     AboutServiceBisComponent,
     FormulairesComponent,
     RappelsComponent,
-    ObservablesComponent
+    ObservablesComponent,
+    RequestsComponent,
+    RxComponent
   ],
     imports: [
         BrowserModule,

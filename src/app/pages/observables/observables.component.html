@@ -1,5 +1,15 @@
 <h1>Les Observables</h1>
 
+<h2>Users</h2>
 <ul *ngIf="users">
   <li *ngFor="let u of users">{{u.name}}</li>
 </ul>
+
+<h2>Postes ( ou articles )</h2>
+<div *ngIf="posts" class="grid">
+  <div *ngFor="let p of posts" class="card">
+    <h3>{{p.title}}</h3>
+    <p>{{p.body}}</p>
+  </div>
+
+</div>
