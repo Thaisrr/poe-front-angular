@@ -8,6 +8,8 @@ import {CommunicationComponent} from "./pages/communication/communication.compon
 import {AboutServiceComponent} from "./pages/about-service/about-service.component";
 import {AboutServiceBisComponent} from "./pages/about-service-bis/about-service-bis.component";
 import {FormulairesComponent} from "./pages/formulaires/formulaires.component";
+import {RappelsComponent} from "./pages/rappels/rappels.component";
+import {ObservablesComponent} from "./pages/observables/observables.component";
 
 const routes: Routes = [
   {path: '', component: PresentationComponent},
@@ -17,6 +19,8 @@ const routes: Routes = [
   {path: 'services', component: AboutServiceComponent},
   {path: 'services2', component: AboutServiceBisComponent},
   {path: 'formulaires', component: FormulairesComponent},
+  {path: 'toto', component: RappelsComponent},
+  {path: 'obs', component: ObservablesComponent},
   {path: 'accueil', redirectTo: ''},
   {path: 'acceuil', redirectTo: '' },
   {path: '**', component: NotfoundComponent}, // se met en dernier

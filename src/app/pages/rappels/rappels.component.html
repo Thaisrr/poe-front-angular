@@ -1,0 +1,13 @@
+<h1>Rappel</h1>
+
+<main>
+  <h2>Mes Produits : </h2>
+
+  <ng-container *ngIf="products">
+    <p *ngFor="let prod of products">{{prod.nom}} dans la catégory {{prod.category.title}}</p>
+  </ng-container>
+
+
+  <p *ngIf="!products">Oh no ! Il n'y a pas de produits :'(</p>
+
+</main>

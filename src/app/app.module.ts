@@ -18,6 +18,13 @@ import { EnfantComponent } from './components/enfant/enfant.component';
 import { AboutServiceComponent } from './pages/about-service/about-service.component';
 import { AboutServiceBisComponent } from './pages/about-service-bis/about-service-bis.component';
 import { FormulairesComponent } from './pages/formulaires/formulaires.component';
+import { RappelsComponent } from './pages/rappels/rappels.component';
+import { ObservablesComponent } from './pages/observables/observables.component';
+import {HttpClientModule} from "@angular/common/http";
+
+
+
+
 registerLocaleData(localeFr, 'fr');
 
 @NgModule({
@@ -34,13 +41,16 @@ registerLocaleData(localeFr, 'fr');
     EnfantComponent,
     AboutServiceComponent,
     AboutServiceBisComponent,
-    FormulairesComponent
+    FormulairesComponent,
+    RappelsComponent,
+    ObservablesComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientModule
     ],
   providers: [{provide: LOCALE_ID, useValue: 'fr-FR'}],
   bootstrap: [AppComponent]
