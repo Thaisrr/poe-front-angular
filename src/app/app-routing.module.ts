@@ -24,6 +24,7 @@ const routes: Routes = [
   {path: 'toto', component: RappelsComponent},
   {path: 'rxjs', component: RxComponent, children: [
       {path: 'obs', component: ObservablesComponent},
+      {path: 'req/:id', component: RequestsComponent},
       {path: 'req', component: RequestsComponent},
     ]},
   {path: 'accueil', redirectTo: ''},
