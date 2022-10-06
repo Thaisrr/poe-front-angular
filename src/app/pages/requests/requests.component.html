@@ -1,4 +1,75 @@
 <h1>Faire des requetes HTTP</h1>
 
-<h2>Joke : </h2>
+<h2>Joke : ( get )</h2>
 <p>{{joke}}</p>
+
+<h2>Types de requêtes HTTP : </h2>
+<ul>
+  <li>GET : récupérer les données</li>
+  <li>POST : créer une donnée</li>
+  <li>PUT : remplacer une donnée</li>
+  <li>PATCH : modifier partiellement une donnée</li>
+  <li>DELETE : supprimer une donnée</li>
+</ul>
+
+<p>CRUD : Create, Read, Update, Delete</p>
+
+<p>En Angular, pour faire des requêtes, on utilise HttpClient, un service qu'il faut injecter dans nos composants, et  qui donne
+généralement le nom de "http" : <code>private http: HttpClient</code></p>
+
+<p>Lorsqu'on fait des requêtes, on fait de la communication asynchrone.</p>
+<p>En JS, on utilise majoritairement axios et fetch, qui retourne des Promesses.</p>
+<p>En Angular, http utilise des Observables. Ils sont également asynchrones.</p>
+
+<p>Http, comme axios, à les méthodes get, post, put, patch, delete, ...</p>
+<p>Exemple : <code>this.http.get(...)</code></p>
+
+<ul>
+  <li>
+    Toutes ces méthodes attendent en 1er paramétre l'url et le chemin de l'API ( http://localhost:3000/ressource   http://www.monapi.com/ressource )
+    <ul>
+      <li>this.http.get('url')</li>
+    </ul>
+  </li>
+  <li>POST, PUT et PATCH prennent en deuxième paramètre le body ( les données qu'on souhaite envoyer ).
+    <code>this.http.post('url', variable_qui_contient_la_valeur )</code>
+  </li>
+  <li>De manière, lorsque la requête doit viser une ressource précise et existante ( PUT, PATCH, DELETE, et certains GET ),
+    l'url de l'api attendra un paramétre d'url :
+    <ul>
+      <li><code>this.http.delete('http://localhost:3000/kebabs/12')</code></li>
+      <li><code>this.http.patch('http://localhost:3000/kebabs/12', objet_body)</code></li>
+      <li><code>this.http.put('http://localhost:3000/kebabs/12', objet_body)</code></li>
+      <li><code>this.http.get('http://localhost:3000/kebabs/12')</code></li>
+    </ul>
+  </li>
+  <li>Il existe un autre type de paramètre, majoritairement avec le get, appelé en Angular "HttpParams".
+    Ce sont des paramétres nommés qui s'ajoutent à l'url. Ils servent majoritairement à filtrer des données.
+    <ul>
+      <li>exemple : ?id=12 <code>http://localhost:3000/kebabs?id=12&name=quelquechose</code></li>
+      <li>Dans JSON server par exemple, ils servent à demander un tableau de donnée "filtré":</li>
+      <li>Un get sur <code>http://localhost:3000/kebabs?is_best_seller=true</code> retourne un tableau de sandwich dons le champs best_seller est vrai.</li>
+      <li>Attention, leur utilisation est soumise à ce que propose l'API ( il faut lire la doc de l'API )</li>
+    </ul>
+  </li>
+
+  <li>Une requête GET retourne : un objet, un tableau et un status 200 ( OK )</li>
+  <li>Une requête POST, PUT, PATCH retournent l'objet créé ou modifié et un status 201 (created ), ou du 200</li>
+  <li>Une requête DELETE retourne : soit rien, une string vide, boolean, number et un status 200 ou 202 ( accepted ), ou 204 ( no content ) </li>
+
+  <li>L'API peut retourner un status autre que 20*, dans ce cas c'est à gérer comme une erreur :
+    <ul>40*  : erreur client
+      <li>404 ( not found ): ressource non trouvée / chemin vers l'API erroné</li>
+      <li>400 (bad request ): mauvaise requête ( paramètre manquant )</li>
+      <li>401 ( unauthorized ):  besoin d'une authentification ( soit l'utilisateur.trice doit se connecter, vous devez vous authentifier sur l'API, vous essayer d'accéder à une API privée )</li>
+      <li>403  ( forbidden ): authentifié mais pas les droits d'effectuer l'action / la requête</li>
+      <li>418 : I'm a teapot</li>
+    </ul>
+    <ul>50* : erreurs serveur ( ou vérifier que l'api est bien lancée - en local )</ul>
+  </li>
+
+
+
+</ul>
+
+
