@@ -1,0 +1,17 @@
+<h1>Connexion</h1>
+
+<form (ngSubmit)="login()">
+  <p>
+    <label for="username">Email</label>
+    <input id="username" name="email" [(ngModel)]="credentials.email"/>
+    <small>email: eve.holt@reqres.in</small>
+  </p>
+  <p>
+    <label for="pwd">Mot de passe</label>
+    <input type="password" id="pwd" name="pwd" [(ngModel)]="credentials.password"/>
+  </p>
+  <p>
+    <button>Se Connecter</button>
+  </p>
+</form>
+

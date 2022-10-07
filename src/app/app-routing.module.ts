@@ -12,6 +12,7 @@ import {RappelsComponent} from "./pages/rappels/rappels.component";
 import {ObservablesComponent} from "./pages/observables/observables.component";
 import {RequestsComponent} from "./pages/requests/requests.component";
 import {RxComponent} from "./pages/rx/rx.component";
+import {LoginComponent} from "./pages/login/login.component";
 
 const routes: Routes = [
   {path: '', component: PresentationComponent},
@@ -27,6 +28,7 @@ const routes: Routes = [
       {path: 'req/:id', component: RequestsComponent},
       {path: 'req', component: RequestsComponent},
     ]},
+  {path: 'login', component: LoginComponent},
   {path: 'accueil', redirectTo: ''},
   {path: 'acceuil', redirectTo: '' },
   {path: '**', component: NotfoundComponent}, // se met en dernier

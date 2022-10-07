@@ -1,27 +1,28 @@
-class fakeAxios {
-  get(url) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if(Math.random() < 0.3) resolve('Pleins de users');
-        else reject('BOOM !')
-      }, 2000)
-    })
+class A {
+  nom = "coucou"
+}
+
+class B {
+  nom = 'Hello';
+
+  maMethode(nom) {
+    console.log( this.nom );
+    console.log(nom);
   }
+
 }
-// import
-const axios = new fakeAxios();
-
-let users;
-
-axios.get('www.monapi.com/user')
-  .then((response) => {
-    users = response;
-    displayUsers();
-  }).catch((error) => console.log(`Oups, quelque chose s'est mal passé : ${error}`))
+const obj_b = new B();
+console.log(obj_b.nom); // Hello
+obj_b.maMethode('mon param'); //Hello     mon param
 
 
-function displayUsers() {
-  console.log(users)
+
+const b_again = new B();
+b_again.nom = 'machin';
+
+function truc(nom) {
+  console.log(nom);
 }
 
-
+truc('toto');
+truc('bidule');
