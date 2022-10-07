@@ -21,12 +21,17 @@
     <li>
       <a routerLink="/rxjs">RXJS</a>
     </li>
-    <li *ngIf="!isLogged">
+    <li *ngIf="!isLogged; else logged">
       <a routerLink="/login">Login</a>
     </li>
-    <li *ngIf="isLogged">
-      <button (click)="logout()">Déconnexion</button>
-    </li>
+    <ng-template #logged>
+      <li>
+        <a routerLink="/admin">Admin</a>
+      </li>
+      <li>
+        <button (click)="logout()">Déconnexion</button>
+      </li>
+    </ng-template>
 
   </ul>
 </nav>

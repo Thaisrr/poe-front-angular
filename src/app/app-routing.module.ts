@@ -14,6 +14,9 @@ import {RequestsComponent} from "./pages/requests/requests.component";
 import {RxComponent} from "./pages/rx/rx.component";
 import {LoginComponent} from "./pages/login/login.component";
 import {ObservablesLeRetourComponent} from "./pages/observables-le-retour/observables-le-retour.component";
+import {AdminComponent} from "./pages/admin/admin.component";
+import {AuthGuard} from "./utils/guards/auth.guard";
+import {ProfileComponent} from "./pages/profile/profile.component";
 
 const routes: Routes = [
   {path: '', component: PresentationComponent},
@@ -31,6 +34,8 @@ const routes: Routes = [
       {path: 'obs-bis', component: ObservablesLeRetourComponent},
     ]},
   {path: 'login', component: LoginComponent},
+  {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   {path: 'accueil', redirectTo: ''},
   {path: 'acceuil', redirectTo: '' },
   {path: '**', component: NotfoundComponent}, // se met en dernier

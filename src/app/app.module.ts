@@ -25,6 +25,8 @@ import { RequestsComponent } from './pages/requests/requests.component';
 import { RxComponent } from './pages/rx/rx.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ObservablesLeRetourComponent } from './pages/observables-le-retour/observables-le-retour.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 
@@ -51,7 +53,9 @@ registerLocaleData(localeFr, 'fr');
     RequestsComponent,
     RxComponent,
     LoginComponent,
-    ObservablesLeRetourComponent
+    ObservablesLeRetourComponent,
+    AdminComponent,
+    ProfileComponent
   ],
     imports: [
         BrowserModule,

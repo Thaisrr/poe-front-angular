@@ -1,28 +1,21 @@
-class A {
-  nom = "coucou"
+const obj = {
+  nom: "Jean Michel"
 }
 
-class B {
-  nom = 'Hello';
+console.log(obj.nom)
 
-  maMethode(nom) {
-    console.log( this.nom );
-    console.log(nom);
+
+class Perso {
+  name;
+
+  sayMyNameSayMyName() {
+    console.log( this.name )
   }
 
 }
-const obj_b = new B();
-console.log(obj_b.nom); // Hello
-obj_b.maMethode('mon param'); //Hello     mon param
 
+const p = new Perso();
+p.name = 'Bidule';
 
-
-const b_again = new B();
-b_again.nom = 'machin';
-
-function truc(nom) {
-  console.log(nom);
-}
-
-truc('toto');
-truc('bidule');
+const p2 = new Perso();
+p2.name = 'Machin';

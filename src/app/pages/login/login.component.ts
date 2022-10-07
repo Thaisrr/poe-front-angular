@@ -1,6 +1,7 @@
-import { Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Cred} from "../../utils/types/CustomTypes";
 import {AuthenticationService} from "../../utils/services/authentication.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 @Component({
@@ -8,16 +9,29 @@ import {AuthenticationService} from "../../utils/services/authentication.service
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent  {
+export class LoginComponent {
   credentials: Cred = {email: '', password: ''};
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(
+    private authService: AuthenticationService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
+
+
 
   login() {
     this.authService.login(this.credentials).subscribe(() => {
       console.log('Vous êtes connecté⋅e');
+      this.redirect();
     })
   }
+
+  redirect() {
+    const path = this.route.snapshot.queryParams['return_url'] || '/admin';
+    this.router.navigate([path]);
+  }
+
 
 
 
