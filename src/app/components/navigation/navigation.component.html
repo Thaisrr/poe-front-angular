@@ -21,8 +21,11 @@
     <li>
       <a routerLink="/rxjs">RXJS</a>
     </li>
-    <li>
-      <a routerLink="/login">Authentification</a>
+    <li *ngIf="!isLogged">
+      <a routerLink="/login">Login</a>
+    </li>
+    <li *ngIf="isLogged">
+      <button (click)="logout()">Déconnexion</button>
     </li>
 
   </ul>

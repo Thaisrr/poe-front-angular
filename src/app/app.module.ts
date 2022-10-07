@@ -24,6 +24,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { RequestsComponent } from './pages/requests/requests.component';
 import { RxComponent } from './pages/rx/rx.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ObservablesLeRetourComponent } from './pages/observables-le-retour/observables-le-retour.component';
 
 
 
@@ -49,7 +50,8 @@ registerLocaleData(localeFr, 'fr');
     ObservablesComponent,
     RequestsComponent,
     RxComponent,
-    LoginComponent
+    LoginComponent,
+    ObservablesLeRetourComponent
   ],
     imports: [
         BrowserModule,

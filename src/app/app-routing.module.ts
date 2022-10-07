@@ -13,6 +13,7 @@ import {ObservablesComponent} from "./pages/observables/observables.component";
 import {RequestsComponent} from "./pages/requests/requests.component";
 import {RxComponent} from "./pages/rx/rx.component";
 import {LoginComponent} from "./pages/login/login.component";
+import {ObservablesLeRetourComponent} from "./pages/observables-le-retour/observables-le-retour.component";
 
 const routes: Routes = [
   {path: '', component: PresentationComponent},
@@ -27,6 +28,7 @@ const routes: Routes = [
       {path: 'obs', component: ObservablesComponent},
       {path: 'req/:id', component: RequestsComponent},
       {path: 'req', component: RequestsComponent},
+      {path: 'obs-bis', component: ObservablesLeRetourComponent},
     ]},
   {path: 'login', component: LoginComponent},
   {path: 'accueil', redirectTo: ''},
